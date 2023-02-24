@@ -1,0 +1,85 @@
+:root {
+  //COLORS
+
+  --primary-color-light: #a962fb;
+
+  --primary-color-dark: #572d88;
+
+  --secondary-color: rgb(146, 39, 218);
+
+  --color-grey-light1: #f9f7f6;
+  --header-bg: rgb(235, 235, 235);
+  --color-grey-light2: rgb(180, 179, 179);
+
+  --color-grey-dark1: #929597;
+  --color-grey-dark2: #505153;
+
+  //FONTS
+  --font-primary: "Nunito", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 40%;
+  }
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-grey-dark1);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content max-content repeat(3, min-content);
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr) [full-end];
+
+  @media only screen and (max-width: 62.5em) {
+    grid-template-rows: 6rem 80vh min-content max-content repeat(3, min-content);
+    grid-template-columns:
+      [full-start] minmax(6rem, 1fr)
+      [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+      [center-end] minmax(6rem, 1fr) [full-end];
+  }
+  @media only screen and (max-width: 43.75em) {
+    grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content max-content repeat(
+        3,
+        min-content
+      );
+  }
+  @media only screen and (max-width: 31.25em) {
+     grid-template-rows: 6rem calc(65vh - 6rem) min-content max-content repeat(3, min-content);
+    }
+  @media only screen and (max-width: 25em) {
+    grid-template-rows: 6rem calc(60vh - 6rem) min-content max-content repeat(3, min-content);
+  }
+}
+
+@mixin photohover {
+  &:hover {
+    transform: scale(1.1);
+    outline: 1.5rem solid var(--color-grey-dark2);
+    z-index: 20;
+    outline-offset: 1rem;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  }
+}
