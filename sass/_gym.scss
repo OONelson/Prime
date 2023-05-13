@@ -1,0 +1,46 @@
+.gym{
+    grid-column: center-start/ center-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    margin: 6rem 0;
+    
+}
+.gymn{
+    background-color:var( --color-grey-light1);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    &__img{
+        width: 100%;
+        transition: all .2s;
+       &:hover{
+        transform: scale(1.2) translateY(-2rem);
+        box-shadow: 0 3rem 4rem rgba(0,0,0,.3);
+       }
+    }
+    &__name{
+        color:  var(--color-grey-dark2);
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-style: italic;
+        padding: 0 2rem;
+        font-family: var(--font-display);
+        font-weight: 400;
+        padding: 1rem;
+    }
+    &__location,
+    &__rating{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+        svg{
+            fill: var(--primary-color-light);
+            height: 2rem;
+            width: 2rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+    }
+}
